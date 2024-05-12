@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\PWR - materiały\IV semestr\Algorytmy\Dijkstra_Algorithm_Implementation\build\CMakeFiles\126008ec0cffc6ecfbbd0378c66b718b\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{6393C619-3D0E-3742-8CB4-D343BD1A60EE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

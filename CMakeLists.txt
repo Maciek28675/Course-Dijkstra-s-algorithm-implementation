@@ -5,4 +5,4 @@ include_directories("include")
 
 file(GLOB SOURCES "src/*.cpp")
 
-add_executable(PriorityQueue ${SOURCES} "src/main.cpp")
+add_executable(Dijkstra_Algorithm_Implementation ${SOURCES})
