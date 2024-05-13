@@ -7,29 +7,24 @@
 
 int main()
 {
-	AdjencyMatrix g1(10);
-	g1.addEdge(2, 4, 7);
-	g1.deleteEdge(2, 4);
-	g1.display();
+	AdjencyList g1(9);
 
-	AdjencyList g2(10);
-	g2.addEdge(2, 4, 7);
-	g2.addEdge(2, 5, 3);
-	g2.deleteEdge(2, 4);
-	g2.display();
-	
-	std::vector<Node> data{ 
-		{4, 4},
-		{2, 2},
-		{3, 3},
-		{8, 8},
-		{5, 5},
-		{6, 6},
-		{9, 9}
-	};
+    g1.addEdge(0, 1, 4);
+    g1.addEdge(0, 7, 8);
+    g1.addEdge(1, 2, 8);
+    g1.addEdge(1, 7, 11);
+    g1.addEdge(2, 3, 7);
+    g1.addEdge(2, 8, 2);
+    g1.addEdge(2, 5, 4);
+    g1.addEdge(3, 4, 9);
+    g1.addEdge(3, 5, 14);
+    g1.addEdge(4, 5, 10);
+    g1.addEdge(5, 6, 2);
+    g1.addEdge(6, 7, 1);
+    g1.addEdge(6, 8, 6);
+    g1.addEdge(7, 8, 7);
 
-	MinHeap pq(data, data.size());
-	pq.display();
+    g1.dijkstraToAll(0);
 
 	return 0;
 }

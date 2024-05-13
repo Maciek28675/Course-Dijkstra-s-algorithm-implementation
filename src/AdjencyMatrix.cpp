@@ -73,22 +73,5 @@ int AdjencyMatrix::getWeight(int start, int end)
 
 void AdjencyMatrix::dijkstraToAll(int source)
 {
-	//Priority queue for storing processed vertices
-	MinHeap pq;
-
-	// Container to store distances to each vertex. At the beginning, all are initialized as infinity
-	std::vector<int> distances(numberOfVerticies_, INFINITY);
-
-	distances[source] = 0;
-
-	for (int i = 1; i < numberOfVerticies_; i++)
-	{
-		pq.insert(i, distances[i]);
-	}
-
-	while (pq.getSize() != 0)
-	{
-		int u = pq.exctractMin().vertex;
-
-	}
+	
 }

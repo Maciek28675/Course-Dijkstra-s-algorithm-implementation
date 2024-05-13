@@ -8,8 +8,11 @@
 class AdjencyList : public Graph
 {
 private:
+	// Data structure looks like this: adjencyList_[startVertex][endVertex] = weight
+	// At every index there is a 'list' of its neighbours and corresponding weights
 	std::vector<std::unordered_map<int, int>> adjencyList_;
 	size_t numberOfVertices_;
+
 public:
 	AdjencyList();
 	AdjencyList(size_t);

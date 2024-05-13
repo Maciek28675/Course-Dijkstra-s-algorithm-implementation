@@ -1,7 +1,12 @@
 #include "AdjencyList.hpp"
+#include "MinHeap.hpp"
 #include <vector>
 #include <unordered_map>
 #include <iostream>
+#include <limits>
+#include <iomanip>
+
+#define INFINITY std::numeric_limits<int>::max()
 
 // Create empty List
 AdjencyList::AdjencyList()
@@ -58,5 +63,46 @@ int AdjencyList::getWeight(int start, int end)
 
 void AdjencyList::dijkstraToAll(int source)
 {
+	//Priority queue to select minimum distance nodes
+	MinHeap pq;
 
-}
+	// Vector to store distances to each vertex. At the beginning, all are initialized as infinity
+	std::vector<int> distances(numberOfVertices_, INFINITY);
+
+	for (int i = 0; i < numberOfVertices_; i++)
+	{
+		pq.insert(i, distances[i]);
+	}
+
+	// Distance to source is 0
+	distances[source] = 0;
+	pq.modifyKey(source, 0);
+
+	while (pq.getSize() != 0)
+	{
+		// Temporary vertex with shortest distance
+		int u = pq.exctractMin().vertex;
+
+		// Get through all vertices adjecent to u
+		for (const auto& it : adjencyList_[u])
+		{
+			int tempVertex = it.first;
+			int tempWeight = it.second;
+
+			//
+			if (distances[tempVertex] > distances[u] + tempWeight)
+			{
+				distances[tempVertex] = distances[u] + tempWeight;
+				pq.insert(tempVertex, distances[tempVertex]);
+			}
+		}
+	}
+
+	std::cout << "Vertex | Distance from "<< source << '\n';
+	std::cout << "------------------------\n";
+
+	for (int i = 0; i < numberOfVertices_; i++)
+	{
+		std::cout << std::internal << std::setw(4) << i << " " << std::right << std::setw(12) << distances[i] << '\n';
+	}
+} 
