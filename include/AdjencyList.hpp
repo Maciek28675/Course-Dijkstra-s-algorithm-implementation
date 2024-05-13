@@ -16,7 +16,7 @@ private:
 public:
 	AdjencyList();
 	AdjencyList(size_t);
-	//AdjencyMatrix(std::vector<std::vector<int>>, size_t);
+	AdjencyList(std::vector<std::unordered_map<int, int>>, size_t);
 	~AdjencyList();
 
 	void addEdge(int start, int end, int weight) override;
@@ -30,6 +30,7 @@ public:
 	int getWeight(int start, int end) override;
 
 	void dijkstraToAll(int source) override;
+	void dijkstraToVertex(int source, int destination) override;
 };
 
 #endif

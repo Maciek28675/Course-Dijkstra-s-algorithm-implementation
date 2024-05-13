@@ -19,6 +19,7 @@ public:
 	virtual int getWeight(int start, int end) = 0;
 
 	virtual void dijkstraToAll(int source) = 0;
+	virtual void dijkstraToVertex(int source, int destination) = 0;
 };
 
 #endif

@@ -17,6 +17,8 @@ AdjencyList::AdjencyList()
 // Initialize List of specified size
 AdjencyList::AdjencyList(size_t numberOfVerticies) : adjencyList_(numberOfVerticies), numberOfVertices_(numberOfVerticies){}
 
+AdjencyList::AdjencyList(std::vector<std::unordered_map<int, int>> data, size_t size) : adjencyList_(data), numberOfVertices_(size) {}
+
 AdjencyList::~AdjencyList() {}
 
 void AdjencyList::addEdge(int start, int end, int weight)
@@ -105,4 +107,47 @@ void AdjencyList::dijkstraToAll(int source)
 	{
 		std::cout << std::internal << std::setw(4) << i << " " << std::right << std::setw(12) << distances[i] << '\n';
 	}
-} 
+}
+
+void AdjencyList::dijkstraToVertex(int source, int destination)
+{
+	//Priority queue to select minimum distance nodes
+	MinHeap pq;
+
+	// Vector to store distances to each vertex. At the beginning, all are initialized as infinity
+	std::vector<int> distances(numberOfVertices_, INFINITY);
+
+	for (int i = 0; i < numberOfVertices_; i++)
+	{
+		pq.insert(i, distances[i]);
+	}
+
+	// Distance to source is 0
+	distances[source] = 0;
+	pq.modifyKey(source, 0);
+
+	while (pq.getSize() != 0)
+	{
+		// Temporary vertex with shortest distance
+		int u = pq.exctractMin().vertex;
+
+		if (u == destination)
+			break;
+
+		// Get through all vertices adjecent to u
+		for (const auto& it : adjencyList_[u])
+		{
+			int tempVertex = it.first;
+			int tempWeight = it.second;
+
+			//
+			if (distances[tempVertex] > distances[u] + tempWeight)
+			{
+				distances[tempVertex] = distances[u] + tempWeight;
+				pq.insert(tempVertex, distances[tempVertex]);
+			}
+		}
+	}
+
+	std::cout << "Shortest path from " << source << " to " << destination << ": " << distances[destination] << '\n';
+}

@@ -118,14 +118,14 @@ void MinHeap::modifyKey(int vertex, int weight)
 	if (weight > heap_[index].weight)
 	{
 		heap_[index].weight = weight;
-		heapifyUp(index);
+		heapifyDown(index);
 	}
 
 	//Decrease key
 	else if (weight < heap_[index].weight)
 	{
 		heap_[index].weight = weight;
-		heapifyDown(index);
+		heapifyUp(index);
 	}
 }
 
