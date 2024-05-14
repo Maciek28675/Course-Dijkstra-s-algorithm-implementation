@@ -100,6 +100,7 @@ void AdjencyList::dijkstraToAll(int source)
 		}
 	}
 
+	/*
 	std::cout << "Vertex | Distance from "<< source << '\n';
 	std::cout << "------------------------\n";
 
@@ -107,6 +108,7 @@ void AdjencyList::dijkstraToAll(int source)
 	{
 		std::cout << std::internal << std::setw(4) << i << " " << std::right << std::setw(12) << distances[i] << '\n';
 	}
+	*/
 }
 
 void AdjencyList::dijkstraToVertex(int source, int destination)
@@ -149,5 +151,13 @@ void AdjencyList::dijkstraToVertex(int source, int destination)
 		}
 	}
 
-	std::cout << "Shortest path from " << source << " to " << destination << ": " << distances[destination] << '\n';
+	//std::cout << "Shortest path from " << source << " to " << destination << ": " << distances[destination] << '\n';
+}
+
+bool AdjencyList::isEdge(int start, int end)
+{
+	if (getWeight(start, end) != 0)
+		return true;
+	else
+		return false;
 }

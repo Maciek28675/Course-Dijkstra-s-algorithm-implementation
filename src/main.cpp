@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <ctime>
+#include <cstdlib>
+#include "Utilities.hpp"
 #include "AdjencyMatrix.hpp";
 #include "AdjencyList.hpp";
 #include "MinHeap.hpp"
@@ -8,6 +11,42 @@
 
 int main()
 {
+    std::cout << "10 Vertices:\n";
+
+    measurePerformance(10, 11, 20);
+    measurePerformance(10, 23, 20);
+    measurePerformance(10, 34, 20);
+    measurePerformance(10, 45, 20);
+
+    std::cout << "50 Vertices:\n";
+
+    measurePerformance(50, 306, 100);
+    measurePerformance(50, 613, 100);
+    measurePerformance(50, 919, 100);
+    measurePerformance(50, 1225, 100);
+
+    std::cout << "100 Vertices:\n";
+
+    measurePerformance(100, 1238, 100);
+    measurePerformance(100, 2475, 100);
+    measurePerformance(100, 3713, 100);
+    measurePerformance(100, 4950, 100);
+
+    std::cout << "500 Vertices:\n";
+
+    measurePerformance(500, 31188, 100);
+    measurePerformance(500, 62375, 100);
+    measurePerformance(500, 93563, 100);
+    measurePerformance(500, 124750, 100);
+
+    std::cout << "1000 Vertices:\n";
+
+    measurePerformance(1000, 124875, 100);
+    measurePerformance(1000, 249750, 100);
+    measurePerformance(1000, 374625, 100);
+    measurePerformance(1000, 499500, 100);
+
+    /*             -- Driver -- 
     std::vector<std::unordered_map<int, int>> data1 = {
         {{1, 4}, {7, 8}},
         {{0, 4}, {2, 8}, {7, 11}},
@@ -64,6 +103,7 @@ int main()
 
     g2.dijkstraToAll(0);
     g2.dijkstraToVertex(0, 5);
+    */
 
 	return 0;
 }

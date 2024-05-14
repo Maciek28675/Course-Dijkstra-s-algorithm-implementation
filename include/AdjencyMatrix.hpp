@@ -25,6 +25,7 @@ public:
 	void display() override;
 
 	int getWeight(int start, int end) override;
+	bool isEdge(int start, int end);
 
 	void dijkstraToAll(int source) override;
 	void dijkstraToVertex(int source, int destination) override;

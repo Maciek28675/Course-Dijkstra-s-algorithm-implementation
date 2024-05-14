@@ -31,8 +31,8 @@ void Timer::stop()
 double Timer::getDuration()
 {
 	duration = end_time - start_time;
-	double duration_ns = duration_cast<nanoseconds>(duration).count();
-	return duration_ns;
+	double duration_ms = duration_cast<microseconds>(duration).count();
+	return duration_ms;
 }
 
 #endif 

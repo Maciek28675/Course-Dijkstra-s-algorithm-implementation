@@ -116,6 +116,7 @@ void AdjencyMatrix::dijkstraToAll(int source)
 		}
 	}
 
+	/*
 	std::cout << "Vertex | Distance from " << source << '\n';
 	std::cout << "------------------------\n";
 
@@ -123,6 +124,7 @@ void AdjencyMatrix::dijkstraToAll(int source)
 	{
 		std::cout << std::internal << std::setw(4) << i << " " << std::right << std::setw(12) << distances[i] << '\n';
 	}
+	*/
 }
 
 void AdjencyMatrix::dijkstraToVertex(int source, int destination)
@@ -167,5 +169,14 @@ void AdjencyMatrix::dijkstraToVertex(int source, int destination)
 		}
 	}
 
-	std::cout << "Shortest path from " << source << " to " << destination << ": " << distances[destination] << '\n';
+	//std::cout << "Shortest path from " << source << " to " << destination << ": " << distances[destination] << '\n';
+}
+
+// Check wether there is an edge beetwen vertices
+bool AdjencyMatrix::isEdge(int start, int end)
+{
+	if (adjencyMatrix_[start][end] == 0)
+		return false;
+	else
+		return true;
 }
